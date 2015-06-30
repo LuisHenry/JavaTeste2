@@ -22,6 +22,7 @@ class JavaTeste2{
 		JButton button1 = new JButton("Luis");
 		button1.addActionListener(new ButtonListener());
 		JButton button2 = new JButton("Roldanus");
+		button2.addActionListener(new SecondListener());
 		JButton button3 = new JButton("ERRAR!");
 		Paint paint = new Paint();
 
@@ -39,6 +40,17 @@ class JavaTeste2{
 			frame.repaint();			
 		}
 	}
+
+	public class SecondListener implements ActionListener{
+		int x;
+		public void actionPerformed(ActionEvent event){ 
+			try{
+				x=1/0;
+			}catch(Exception e){
+				frame.dispose();
+			}	
+	}
+}
 	public class Paint extends JPanel{
 		public void paintComponent(Graphics g){
 			int x = random.nextInt(1500)+1;
